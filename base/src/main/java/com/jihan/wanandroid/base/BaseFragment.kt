@@ -10,12 +10,9 @@ import androidx.fragment.app.Fragment
  * @Date 2020/5/18 16:09
  * @Description
  */
-abstract class BaseFragment<P : IBasePresenter<*>> : Fragment(), IBaseView {
-    var mPresenter: P? = null
-
+abstract class BaseFragment : Fragment(){
     override fun onInflate(context: Context, attrs: AttributeSet, savedInstanceState: Bundle?) {
         super.onInflate(context, attrs, savedInstanceState)
     }
 
-    abstract fun createPresenter():P?
 }

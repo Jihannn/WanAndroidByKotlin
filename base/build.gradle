@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -15,6 +16,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -31,4 +35,6 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.8.1'
     api 'com.squareup.retrofit2:converter-jackson:2.8.1'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 }

@@ -2,8 +2,7 @@ package com.jihan.wanandroid.base
 
 /**
  * @Author Jihan
- * @Date 2020/5/18 15:00
+ * @Date 2020/5/22 14:39
  * @Description
  */
-interface IBasePresenter<V:IBaseView> {
-}
+open class BaseRepository{}

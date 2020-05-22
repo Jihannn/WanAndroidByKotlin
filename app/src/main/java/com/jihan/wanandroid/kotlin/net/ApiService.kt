@@ -1,16 +1,17 @@
 package com.jihan.wanandroid.kotlin.net
 
-import io.reactivex.Observable
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.jihan.wanandroid.base.BaseResponse
+import com.jihan.wanandroid.kotlin.data.WxArticle
+import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 /**
  * @Author Jihan
  * @Date 2020/5/18 17:08
  * @Description
  */
-class ApiService {
-
-    @GET("/article/list/{page}/json")
-    fun getHomeList(@Path("page") pageNo: Int): Observable<BaseResponse<ArticleEntity>>
+interface ApiService {
+    @GET("/wxarticle/chapters/json")
+    fun loadWxArticle(): Call<BaseResponse<List<WxArticle>>>
 }

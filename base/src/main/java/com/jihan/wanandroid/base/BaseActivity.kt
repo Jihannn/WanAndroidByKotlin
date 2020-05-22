@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
  * @Description
  */
 
-abstract class BaseActivity<P : IBasePresenter<*>> : AppCompatActivity(), IBaseView {
-    var mPresenter: P? = null
+abstract class BaseActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +17,6 @@ abstract class BaseActivity<P : IBasePresenter<*>> : AppCompatActivity(), IBaseV
         if(layoutId != -1){
             setContentView(layoutId)
         }
-        mPresenter = createPresenter()
         ActivityManager.instance.add(this)
     }
 
@@ -27,6 +25,5 @@ abstract class BaseActivity<P : IBasePresenter<*>> : AppCompatActivity(), IBaseV
         ActivityManager.instance.remove(this)
     }
 
-    abstract fun createPresenter():P?
     abstract fun getLayoutId() : Int
 }
