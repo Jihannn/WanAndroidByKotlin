@@ -1,9 +1,8 @@
 package com.jihan.wanandroid.kotlin.net
 
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.jihan.wanandroid.base.BaseResponse
-import com.jihan.wanandroid.kotlin.data.WxArticle
-import retrofit2.Call
+import com.jihan.wanandroid.kotlin.module.article.data.WxArticle
+import retrofit2.Response
 import retrofit2.http.GET
 
 /**
@@ -13,5 +12,5 @@ import retrofit2.http.GET
  */
 interface ApiService {
     @GET("/wxarticle/chapters/json")
-    fun loadWxArticle(): Call<BaseResponse<List<WxArticle>>>
+    suspend fun loadWxArticle(): BaseResponse<List<WxArticle>>
 }

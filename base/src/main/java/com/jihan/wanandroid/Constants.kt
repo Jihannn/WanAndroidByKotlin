@@ -6,5 +6,6 @@ package com.jihan.wanandroid
  * @Description
  */
 object Constants {
-    val BASE_URL = "https://www.wanandroid.com/"
+    const val BASE_URL = "https://www.wanandroid.com/"
+
 }

@@ -1,11 +1,11 @@
 package com.jihan.wanandroid.net
 
 import com.jihan.wanandroid.Constants
+import com.squareup.moshi.Moshi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.jackson.JacksonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
@@ -32,8 +32,7 @@ class RetrofitFactory private constructor() {
             )
         }
         retrofit = Retrofit.Builder()
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(JacksonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .client(initOkHttpClient())
             .baseUrl(Constants.BASE_URL)
             .build()

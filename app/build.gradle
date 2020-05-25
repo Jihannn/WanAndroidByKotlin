@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -14,10 +15,12 @@ android {
         versionName rootProject.ext.versionName
         consumerProguardFiles 'consumer-rules.pro'
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,4 +33,5 @@ android {
 dependencies {
     implementation project(path: ':base')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.9.2'
 }

@@ -9,15 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
  * @Description
  */
 
-abstract class BaseActivity : AppCompatActivity(){
+abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layoutId = getLayoutId()
-        if(layoutId != -1){
+        if (layoutId != -1) {
             setContentView(layoutId)
         }
         ActivityManager.instance.add(this)
+        initView()
     }
 
     override fun onDestroy() {
@@ -25,5 +26,7 @@ abstract class BaseActivity : AppCompatActivity(){
         ActivityManager.instance.remove(this)
     }
 
-    abstract fun getLayoutId() : Int
+    abstract fun getLayoutId(): Int
+
+    abstract fun initView()
 }
